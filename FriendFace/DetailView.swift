@@ -8,51 +8,37 @@
 import SwiftUI
 
 struct DetailView: View {
-    let user: User
+    let user: CachedUser
     
     var body: some View {
             List {
                 Section {
-                    Text("Registered: \(user.simplifiedDate)")
+                    Text("Registered: \(user.wrappedSimplifiedDate)")
                     Text("Age: \(user.age)")
-                    Text("Email: \(user.email)")
-                    Text("Address: \(user.address)")
-                    Text("Works for: \(user.company)")
+                    Text("Email: \(user.wrappedEmail)")
+                    Text("Address: \(user.wrappedAddress)")
+                    Text("Works for: \(user.wrappedCompany)")
                 } header: {
                     Text("Basic Info")
                 }
                 
                 Section {
-                    Text(user.about)
+                    Text(user.wrappedAbout)
                 } header: {
                     Text("About")
                 }
                 
                 Section {
-                    ForEach(user.friends) { friend in
-                        Text(friend.name)
+                    ForEach(user.friendsArray) { friend in
+                        Text(friend.wrappedName)
                     }
                 } header: {
                     Text("Friends")
                 }
             }
-            .toolbar {
-                Button {
-                    //
-                } label: {
-                    Label("Delete User", systemImage: "trash")
-                }
-
-            }
-            .navigationTitle(user.name)
+            .navigationTitle(user.wrappedName)
             .navigationBarTitleDisplayMode(.inline)
         }
     
 }
 
-struct DetailView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        DetailView(user: User(id: UUID(), name: "Johnny", age: 12, company: "Apple", about: "This is about me", isActive: true, email: "apple@hotmail.com", registered: Date.now, friends: [], address: "566 route des vignes", tags: ["bananas"]))
-    }
-}
