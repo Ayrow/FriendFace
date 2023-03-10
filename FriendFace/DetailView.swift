@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DetailView: View {
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.dismiss) var dismiss
+    @State private var showingAlert = false
     let user: CachedUser
     
     var body: some View {
@@ -36,9 +39,28 @@ struct DetailView: View {
                     Text("Friends")
                 }
             }
+            .toolbar {
+                Button {
+                    showingAlert = true
+                } label: {
+                    Label("Delete user", systemImage: "trash")
+                }
+
+            }
             .navigationTitle(user.wrappedName)
             .navigationBarTitleDisplayMode(.inline)
+            .alert("Are your sure?", isPresented: $showingAlert) {
+                Button("Delete", role: .destructive) {
+                    deleteUser()
+                }
+                Button("Cancel", role: .cancel) {}
+            }
         }
+    
+    func deleteUser() {
+        moc.delete(user)
+        dismiss()
+    }
     
 }
 
