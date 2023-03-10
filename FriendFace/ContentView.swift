@@ -14,14 +14,20 @@ struct ContentView: View {
         NavigationStack {
             List(users) { user in
                 HStack {
-                    Image(systemName: "person.fill")
-                        .foregroundColor(user.isActive ? .green : .red)
-                    Text(user.name)
+                    NavigationLink {
+                        //
+                    } label: {
+                        Image(systemName: "person.fill")
+                            .foregroundColor(user.isActive ? .green : .red)
+                        Text(user.name)
+                    }
                 }
             }
             .navigationTitle("FriendFace")
             .task {
-               await getUsers()
+                if(users.isEmpty){
+                    await getUsers()
+                }
                 }
             }
         }
