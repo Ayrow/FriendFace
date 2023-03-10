@@ -15,7 +15,7 @@ struct ContentView: View {
             List(users) { user in
                 HStack {
                     NavigationLink {
-                        //
+                        DetailView(user: user)
                     } label: {
                         Image(systemName: "person.fill")
                             .foregroundColor(user.isActive ? .green : .red)

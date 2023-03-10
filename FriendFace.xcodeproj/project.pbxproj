@@ -12,6 +12,7 @@
 		94937B0B29BB591000358536 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94937B0A29BB591000358536 /* Assets.xcassets */; };
 		94937B0E29BB591000358536 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94937B0D29BB591000358536 /* Preview Assets.xcassets */; };
 		94937B1529BB623C00358536 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94937B1429BB623C00358536 /* User.swift */; };
+		94937B1729BB7ABC00358536 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94937B1629BB7ABC00358536 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		94937B0A29BB591000358536 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94937B0D29BB591000358536 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		94937B1429BB623C00358536 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		94937B1629BB7ABC00358536 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				94937B0629BB590F00358536 /* FriendFaceApp.swift */,
 				94937B0829BB590F00358536 /* ContentView.swift */,
+				94937B1629BB7ABC00358536 /* DetailView.swift */,
 				94937B1429BB623C00358536 /* User.swift */,
 				94937B0A29BB591000358536 /* Assets.xcassets */,
 				94937B0C29BB591000358536 /* Preview Content */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94937B0929BB590F00358536 /* ContentView.swift in Sources */,
+				94937B1729BB7ABC00358536 /* DetailView.swift in Sources */,
 				94937B0729BB590F00358536 /* FriendFaceApp.swift in Sources */,
 				94937B1529BB623C00358536 /* User.swift in Sources */,
 			);

@@ -20,6 +20,9 @@ struct User: Codable, Identifiable {
     var address: String
     var tags: [String]
     
+    var simplifiedDate: String {
+        registered.formatted(date: .abbreviated, time: .omitted)
+    }
     
 }
 
