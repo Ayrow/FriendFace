@@ -11,62 +11,43 @@ struct DetailView: View {
     let user: User
     
     var body: some View {
-        NavigationStack {
-            VStack {
+            List {
                 Section {
-                    ZStack {
-                        LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
-                            .frame(height: 300)
-                        
-                        VStack {
-                            Text("Contact Info:")
-                                .font(.largeTitle)
-                                .padding(.bottom)
-                            Text("\(user.name)")
-                                .font(.title)
-                            Text("\(user.address)")
-                                .font(.title3)
-                                .multilineTextAlignment(.center)
-                            Text("\(user.email)")
-                                .font(.title3)
-                            
-                            Text("Registered: \(user.simplifiedDate)")
-                                .padding(.vertical)
-                        }
-                        .foregroundColor(.white)
-                    }
+                    Text("Registered: \(user.simplifiedDate)")
+                    Text("Age: \(user.age)")
+                    Text("Email: \(user.email)")
+                    Text("Address: \(user.address)")
+                    Text("Works for: \(user.company)")
+                } header: {
+                    Text("Basic Info")
                 }
                 
-                Spacer()
-                
                 Section {
-                    ScrollView {
-                        Text("\(user.about)")
-                    }
+                    Text(user.about)
                 } header: {
                     Text("About")
-                        .font(.title)
-                }.padding()
+                }
                 
-                
-                
-                
-                
+                Section {
+                    ForEach(user.friends) { friend in
+                        Text(friend.name)
+                    }
+                } header: {
+                    Text("Friends")
+                }
             }
-            
             .toolbar {
                 Button {
                     //
                 } label: {
-                    Label("Delete user", systemImage: "trash")
+                    Label("Delete User", systemImage: "trash")
                 }
 
             }
             .navigationTitle(user.name)
-            
+            .navigationBarTitleDisplayMode(.inline)
         }
-        
-    }
+    
 }
 
 struct DetailView_Previews: PreviewProvider {
