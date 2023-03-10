@@ -19,6 +19,8 @@ struct User: Codable, Identifiable {
     var friends: [Friend]
     var address: String
     var tags: [String]
+    
+    
 }
 
 struct Friend: Codable, Identifiable {

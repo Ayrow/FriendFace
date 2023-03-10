@@ -13,7 +13,11 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(users) { user in
-                Text(user.name)
+                HStack {
+                    Image(systemName: "person.fill")
+                        .foregroundColor(user.isActive ? .green : .red)
+                    Text(user.name)
+                }
             }
             .navigationTitle("FriendFace")
             .task {
